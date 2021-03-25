@@ -3,7 +3,7 @@ body{
 }
 
 .navbar{
-	background-color:#e8e8e8 !important;
+	background-color:#54b3ad !important;
 }
 
 .navbar img{
@@ -26,7 +26,7 @@ body{
 
 
 .nav{
-	background-color:#f4f4f4 !important;
+	background-color:#d6d5d5 !important;
 }
 
 .nav a{
@@ -35,7 +35,7 @@ body{
 }
 
 .nav .active{
-	background-color:#8d2525 !important;
+	background-color:#54b3ad !important;
 }
 
 
@@ -95,11 +95,11 @@ body{
 
 
 .btn-secondary{
-	background-color:#878787 !important;
+	background-color:#54b3ad !important;
 }
 
 .btn-secondary:hover{
-	background-color:#616161 !important;
+	background-color:#358b86 !important;
 }
 
 
