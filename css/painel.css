@@ -35,7 +35,7 @@ body{
 }
 
 .nav .active{
-	background-color:#54b3ad !important;
+	background-color:#54b3ad  !important;
 }
 
 
@@ -95,11 +95,11 @@ body{
 
 
 .btn-secondary{
-	background-color:#54b3ad !important;
+	background-color:#54b3ad  !important;
 }
 
 .btn-secondary:hover{
-	background-color:#358b86 !important;
+	background-color:#358b86!important;
 }
 
 
@@ -198,4 +198,17 @@ body{
 .container-tela{
 	margin-left:5px;
 	margin-right:5px;
+}
+
+
+
+.container-tela-chamadas{
+  margin-top:100px;
+  
+}
+
+
+
+.card-adm{
+	margin-top:30px;
 }

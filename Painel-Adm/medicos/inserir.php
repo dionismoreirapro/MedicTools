@@ -41,7 +41,7 @@ if($linhas == 0){
 
 	$res->bindValue(":senha", md5($cpf_sem_tracos));
 	$res->bindValue(":senha_original", $cpf_sem_tracos);
-	$res->bindValue(":nivel", 'Medico');
+	$res->bindValue(":nivel", 'Médico');
 	
 
 	$res->execute();

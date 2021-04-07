@@ -3,6 +3,7 @@
 //verficações para o Login
 require_once("../conexao.php");
 require_once("../config.php");
+require_once("consultas-notificacoes.php");
 
 @session_start();
 if(!isset($_SESSION['nome_usuario']) || $_SESSION['nivel_usuario'] != 'admin'){
@@ -22,7 +23,8 @@ $item6 = 'recepcionistas';
 $item7 = 'atendimentos';
 $item8 = 'tesoureiros';
 $item9 = 'cargos';
-$item10 = 'notificacoes';
+$item10 = 'backup';
+$item11 = 'notificacoes';
 
 //VERIFICAR QUAL O MENU CLICADO E PASSAR A CLASSE ATIVO
 if(@$_GET['acao'] == $item1){
@@ -45,6 +47,8 @@ if(@$_GET['acao'] == $item1){
 	$item9ativo = 'active';
 }elseif(@$_GET['acao'] == $item10){
 	$item10ativo = 'active';
+}elseif(@$_GET['acao'] == $item11){
+	$item11ativo = 'active';
 }else{
 	$item1ativo = 'active';
 }
@@ -59,28 +63,21 @@ if(@$_GET['acao'] == $item1){
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-	
-	<link  rel="stylesheet" href="../css/painel.css">
-	
+	<link rel="stylesheet" href="../css/painel.css">
 
 	<!--REFERENCIA PARA O FAVICON -->
 	<link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
 	<link rel="icon" href="../img/favicon.ico" type="image/x-icon">
 
+
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
-
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
-
-
-
 </head>
+
 <body>
 
 	<nav class="navbar navbar-light bg-light">
@@ -92,10 +89,9 @@ if(@$_GET['acao'] == $item1){
 				</a>
 				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 					<a class="dropdown-item" href="../logout.php">Sair</a>
+					<a class="dropdown-item" data-toggle="modal" data-target="#modal">Alterar Senha</a>
 				</div>
 			</li>
-
-
 		</div>
 	</nav>
 
@@ -110,18 +106,20 @@ if(@$_GET['acao'] == $item1){
 
 					<a class="nav-link <?php echo @$item4ativo ?>" id="v-pills-messages-tab"  href="index.php?acao=<?php echo $item4 ?>" role="tab" aria-controls="v-pills-messages" aria-selected="false"><i class="far fa-user mr-1"></i>Cadastro de Usuários</a>
 
-					<a class="nav-link <?php echo @$item5ativo ?>" id="v-pills-messages-tab"  href="index.php?acao=<?php echo $item5 ?>" role="tab" aria-controls="v-pills-messages" aria-selected="false"><i class="far fa-user mr-1"></i>Especializações</a>
+					<a class="nav-link <?php echo @$item5ativo ?>" id="v-pills-messages-tab"  href="index.php?acao=<?php echo $item5 ?>" role="tab" aria-controls="v-pills-messages" aria-selected="false"><i class="far fa-user mr-1"></i>Cadastro de Especializações</a>
 
-					<a class="nav-link <?php echo $item6ativo ?>" id="v-pills-messages-tab"  href="index.php?acao=<?php echo $item6 ?>" role="tab" aria-controls="v-pills-messages" aria-selected="false"><i class="far fa-user mr-1"></i>Recepcionistas</a>
+					<a class="nav-link <?php echo $item6ativo ?>" id="v-pills-messages-tab"  href="index.php?acao=<?php echo $item6 ?>" role="tab" aria-controls="v-pills-messages" aria-selected="false"><i class="far fa-user mr-1"></i>Cadastro de Recepcionistas</a>
 
-					<a class="nav-link <?php echo $item7ativo ?>" id="v-pills-messages-tab"  href="index.php?acao=<?php echo $item7 ?>" role="tab" aria-controls="v-pills-messages" aria-selected="false"><i class="far fa-user mr-1"></i>Atendimentos</a>
+					<a class="nav-link <?php echo $item7ativo ?>" id="v-pills-messages-tab"  href="index.php?acao=<?php echo $item7 ?>" role="tab" aria-controls="v-pills-messages" aria-selected="false"><i class="far fa-user mr-1"></i>Cadastro de Atendimentos</a>
 
-					<a class="nav-link <?php echo $item8ativo ?>" id="v-pills-messages-tab"  href="index.php?acao=<?php echo $item8 ?>" role="tab" aria-controls="v-pills-messages" aria-selected="false"><i class="far fa-user mr-1"></i>Tesoureiros</a>
+					<a class="nav-link <?php echo $item8ativo ?>" id="v-pills-messages-tab"  href="index.php?acao=<?php echo $item8 ?>" role="tab" aria-controls="v-pills-messages" aria-selected="false"><i class="far fa-user mr-1"></i>Cadastro de Tesoureiros</a>
 
-					<a class="nav-link <?php echo $item9ativo ?>" id="v-pills-messages-tab"  href="index.php?acao=<?php echo $item9 ?>" role="tab" aria-controls="v-pills-messages" aria-selected="false"><i class="far fa-user mr-1"></i>Cargos</a>
+					<a class="nav-link <?php echo $item9ativo ?>" id="v-pills-messages-tab"  href="index.php?acao=<?php echo $item9 ?>" role="tab" aria-controls="v-pills-messages" aria-selected="false"><i class="far fa-user mr-1"></i>Cadastro de Cargos</a>
+
+					<a class="nav-link <?php echo $item10ativo ?>" id="v-pills-messages-tab"  href="backup.php?acao=<?php echo $item10 ?>" role="tab" aria-controls="v-pills-messages" aria-selected="false"><i class="far fa-user mr-1"></i>Backup do Banco</a>
 
 					<?php 	if($notificacoes > 0){ ?>
-						<a class="nav-link <?php echo $item10ativo ?>" id="v-pills-messages-tab"  href="index.php?acao=<?php echo $item10 ?>" role="tab" aria-controls="v-pills-messages" aria-selected="false"><i class="far fa-user mr-1"></i>Notificações</a>
+						<a class="nav-link <?php echo $item11ativo ?>" id="v-pills-messages-tab"  href="index.php?acao=<?php echo $item11 ?>" role="tab" aria-controls="v-pills-messages" aria-selected="false"><i class="far fa-user mr-1"></i>Notificações do Sistema <span class="badge badge-secondary"><?php echo $total_notificacoes ?></span></a>
 					<?php 	} ?>
 				</div>
 			</div>
@@ -148,30 +146,98 @@ if(@$_GET['acao'] == $item1){
 							include_once($item8.".php");
 						}elseif(@$_GET['acao'] == $item9){
 							include_once($item9.".php");
-						}elseif(@$_GET['acao'] == $item10){
-							include_once($item10.".php");
+						}elseif(@$_GET['acao'] == $item11){
+							include_once($item11.".php");
 						}else{
 							include_once($item1.".php"); 
 						}
 						?>
 					</div>
 
+					
+
 				</div>
 			</div>
 		</div>
 	</div>
 
+
 </body>
 </html>
 
+<!-- Modal -->
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">
+					Alterar Senha
+				</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<form method="post">
+					<div class="form-group">
+						<label for="exampleFormControlInput1">Senha</label>
+						<input type="password" class="form-control" id="" placeholder="Insira a Senha" name="senha" >
+					</div>
+
+					<div class="form-group">
+						<label for="exampleFormControlInput1">Confirmar Senha</label>
+						<input type="password" class="form-control" id="" placeholder="Insira a Senha" name="confirmar-senha">
+					</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+				<button type="submit" name="btn-senha" class="btn btn-primary">Alterar</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+<!--CÓDIGO DO BOTÃO SALVAR -->
 <?php 
-/*
+if(isset($_POST['btn-senha'])){
+	$senha = $_POST['senha'];
+	$confirmar_senha = $_POST['confirmar-senha'];
 
-//EXECUTAR UM LINK HREF COM SCRIPT
-if(isset($_GET['btnbuscarMedicos'])){ ?>
 
-<script type="text/javascript">
-	$('#link-medicos').click();
-</script>
 
-<?php } */ ?>
+	$email_usuario = $_SESSION['email_usuario'];
+
+
+	$res_usuario = $pdo->query("SELECT * from usuarios where usuario = '$email_usuario'");
+	$dados_usuario = $res_usuario->fetchAll(PDO::FETCH_ASSOC);
+    $id_adm = $dados_usuario[0]['id'];	
+								
+   
+
+    if($senha == $confirmar_senha){
+	
+
+		$res = $pdo->prepare("UPDATE usuarios SET senha = :senha, senha_original = :senha_original where id = :id");
+
+		$res->bindValue(":senha", md5($senha));
+		$res->bindValue(":senha_original", $senha);
+		$res->bindValue(":id", $id_adm);
+
+		$res->execute();
+
+		
+		echo "<script language='javascript'>window.location='../index.php'; </script>";
+
+	}else{
+		echo "<script language='javascript'>window.alert('As senhas não coincidem!!'); </script>";
+	}
+
+	
+
+}
+
+?>

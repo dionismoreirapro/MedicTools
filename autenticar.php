@@ -10,7 +10,6 @@ if(empty($_POST['usuario']) || empty($_POST['senha'])){
 $usuario = $_POST['usuario'];
 $senha = md5($_POST['senha']);
 
-
 $res = $pdo->prepare("SELECT * from usuarios where usuario = :usuario and senha = :senha ");
 
 $res->bindValue(":usuario", $usuario);
@@ -20,10 +19,8 @@ $res->execute();
 $dados = $res->fetchAll(PDO::FETCH_ASSOC);
 $linhas = count($dados);
 
-
-
 if($linhas > 0){
-	$_SESSION['nome_usuario'] = $dados[0]['nome'];
+	$_SESSION['nome_usuario']  = $dados[0]['nome'];
 	$_SESSION['email_usuario'] = $dados[0]['usuario'];
 	$_SESSION['nivel_usuario'] = $dados[0]['nivel'];
 
@@ -48,27 +45,24 @@ if($linhas > 0){
 	}
 
 
-	if($_SESSION['nivel_usuario'] == 'Farmáceutico'){
+	if($_SESSION['nivel_usuario'] == 'Farmaceutico'){
 		header("location:painel-farmacia/index.php");
 		exit();
 	}
-
-
 
 	if($_SESSION['nivel_usuario'] == 'Tela'){
 		header("location:tela.php");
 		exit();
 	}
 
-
-
-
+	if($_SESSION['nivel_usuario'] == 'tela-chamada'){
+		header("location:tela-chamada.php");
+		exit();
+	}
 	
 }else{
 	echo "<script language='javascript'>window.alert('Dados Incorretos!!'); </script>";
 	echo "<script language='javascript'>window.location='index.php'; </script>";
 	
 }
-
-
- ?>
+?>

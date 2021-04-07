@@ -1,6 +1,9 @@
 body{
-	color:rgb(168, 161, 161);
-	background-color:#c8c8c8;
+	background-image:url(../img/blur-hospital.jpeg);
+	background-attachment: fixed;
+	background-size: 100%;
+	background-repeat: no-repeat;
+
 }
 
 .login-form{
@@ -8,7 +11,6 @@ body{
 	margin:0 auto;
 	padding:100px 0 30px;
 }
-
 
 .login-form form{
 	color:#7a7a7a;
