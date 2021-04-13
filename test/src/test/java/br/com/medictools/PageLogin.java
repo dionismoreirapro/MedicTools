@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverRunner.isChrome;
+import static com.codeborne.selenide.Selectors.byText;
 
 public class PageLogin {
 
@@ -18,8 +19,10 @@ public class PageLogin {
     public void VerificandoUsuarioLogado(){
         isChrome();
         open("http://localhost/medictools/");
-        $("input");
-
+        $("input[name=usuario]").setValue("admin@admin.com.br");
+        $("input[name=senha]").setValue("123");
+        $("#btn-login").click();
+        $(byText("Administrador - dionis moreira"));
 
 
 

@@ -66,7 +66,7 @@ require_once("config.php");
 			</div>
 
 			<div class="form-group">
-				<button class="btn btn-primary btn-lg btn-block" type="submit" name="btn-login">LOGIN</button>	
+				<button class="btn btn-primary btn-lg btn-block" type="submit" id="btn-login" name="btn-login">LOGIN</button>	
 			</div>
 
 			<div class="clearfix">

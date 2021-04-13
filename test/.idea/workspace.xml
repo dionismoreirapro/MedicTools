@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3e7ce1d9-0ed2-48ab-b041-dee3e71610bf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/br/com/medictools/PageLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/medictools/PageLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/medictools/PageLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/br/com/medictools/PageLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/br/com/medictools/PageLogin.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +34,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="TestNG.PageLogin.VerificandoUsuarioLogado">
     <configuration name="PageLogin.OnAir" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="test_unit" />
       <extension name="coverage">
@@ -51,8 +53,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PageLogin.VerificandoUsuarioLogado" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="test_unit" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.com.medictools.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="br.com.medictools" />
+      <option name="MAIN_CLASS_NAME" value="br.com.medictools.PageLogin" />
+      <option name="METHOD_NAME" value="VerificandoUsuarioLogado" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.PageLogin.VerificandoUsuarioLogado" />
         <item itemvalue="TestNG.PageLogin.OnAir" />
       </list>
     </recent_temporary>
