@@ -17,11 +17,11 @@
 
 					<?php 
 
-					if(isset($_POST['itens-pagina'])){
-						$item_paginado = $_POST['itens-pagina'];
-					}elseif(isset($_GET['itens'])){
-						$item_paginado = $_GET['itens'];
-					}
+						if(isset($_POST['itens-pagina'])){
+							$item_paginado = $_POST['itens-pagina'];
+						}elseif(isset($_GET['itens'])){
+							$item_paginado = $_GET['itens'];
+						}
 
 					?>
 
@@ -51,17 +51,17 @@
 
 	<?php 
 
-	//DEFINIR O NUMERO DE ITENS POR PÁGINA
-	if(isset($_POST['itens-pagina'])){
-		$itens_por_pagina = $_POST['itens-pagina'];
-		@$_GET['pagina'] = 0;
-	}elseif(isset($_GET['itens'])){
-		$itens_por_pagina = $_GET['itens'];
-	}
-	else{
-		$itens_por_pagina = $opcao1;
+		//DEFINIR O NUMERO DE ITENS POR PÁGINA
+		if(isset($_POST['itens-pagina'])){
+			$itens_por_pagina = $_POST['itens-pagina'];
+			@$_GET['pagina'] = 0;
+		}elseif(isset($_GET['itens'])){
+			$itens_por_pagina = $_GET['itens'];
+		}
+		else{
+			$itens_por_pagina = $opcao1;
 
-	}
+		}
 
 	?>
 	
@@ -89,15 +89,7 @@
 <div id="listar">
 	
 </div>
-
-
-
-
-
-
-
-
-
+	
 <!-- Modal -->
 <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-lg" role="document">
@@ -163,7 +155,7 @@
 								if(@$_GET['funcao'] == 'editar'){
 
 									$res_espec = $pdo->query("SELECT * from especializacoes where id = '$esp'");
-							$dados_espec = $res_espec->fetchAll(PDO::FETCH_ASSOC);
+									$dados_espec = $res_espec->fetchAll(PDO::FETCH_ASSOC);
 
 							for ($i=0; $i < count($dados_espec); $i++) { 
 								foreach ($dados_espec[$i] as $key => $value) {

@@ -1,40 +1,40 @@
 <?php 
 
-require_once("../../conexao.php");
+	require_once("../../conexao.php");
 
-$id = $_POST['id'];
-
-
-
-//BUSCAR O EMAIL DO REGISTRO PARA TAMBÉM DELETAR NA TABELA DE USUÁRIOS
-$res_excluir = $pdo->query("select * from medicos where id = '$id'");
-$dados_excluir = $res_excluir->fetchAll(PDO::FETCH_ASSOC);
-$email= $dados_excluir[0]['email'];
-
-//EXCLUIR NA TABELA DE USUÁRIOS
-$res_usu = $pdo->prepare("DELETE from usuarios where usuario = :usu ");
-
-$res_usu->bindValue(":usu", $email);
-
-$res_usu->execute();
+	$id = $_POST['id'];
 
 
 
-//EXCLUIR NA TABELA DE FUNCIONÁRIOS
-$res_usu = $pdo->prepare("DELETE from funcionarios where email = :usu ");
+	//BUSCAR O EMAIL DO REGISTRO PARA TAMBÉM DELETAR NA TABELA DE USUÁRIOS
+	$res_excluir = $pdo->query("select * from medicos where id = '$id'");
+	$dados_excluir = $res_excluir->fetchAll(PDO::FETCH_ASSOC);
+	$email= $dados_excluir[0]['email'];
 
-$res_usu->bindValue(":usu", $email);
+	//EXCLUIR NA TABELA DE USUÁRIOS
+	$res_usu = $pdo->prepare("DELETE from usuarios where usuario = :usu ");
 
-$res_usu->execute();
+	$res_usu->bindValue(":usu", $email);
+
+	$res_usu->execute();
+
+
+
+	//EXCLUIR NA TABELA DE FUNCIONÁRIOS
+	$res_usu = $pdo->prepare("DELETE from funcionarios where email = :usu ");
+
+	$res_usu->bindValue(":usu", $email);
+
+	$res_usu->execute();
 
 
 
 
-$res = $pdo->prepare("DELETE from medicos where id = :id ");
+	$res = $pdo->prepare("DELETE from medicos where id = :id ");
 
-$res->bindValue(":id", $id);
+	$res->bindValue(":id", $id);
 
-$res->execute();
+	$res->execute();
 
 
 

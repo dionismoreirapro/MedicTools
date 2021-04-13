@@ -51,17 +51,17 @@
 
 	<?php 
 
-	//DEFINIR O NUMERO DE ITENS POR PÁGINA
-	if(isset($_POST['itens-pagina'])){
-		$itens_por_pagina = $_POST['itens-pagina'];
-		@$_GET['pagina'] = 0;
-	}elseif(isset($_GET['itens'])){
-		$itens_por_pagina = $_GET['itens'];
-	}
-	else{
-		$itens_por_pagina = $opcao1;
+		//DEFINIR O NUMERO DE ITENS POR PÁGINA
+		if(isset($_POST['itens-pagina'])){
+			$itens_por_pagina = $_POST['itens-pagina'];
+			@$_GET['pagina'] = 0;
+		}elseif(isset($_GET['itens'])){
+			$itens_por_pagina = $_GET['itens'];
+		}
+		else{
+			$itens_por_pagina = $opcao1;
 
-	}
+		}
 
 	?>
 	
@@ -89,14 +89,6 @@
 <div id="listar">
 	
 </div>
-
-
-
-
-
-
-
-
 
 <!-- Modal -->
 <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -138,12 +130,7 @@
 
 					<label for="exampleFormControlInput1">Nome Especialidade</label>
 					<input type="text" class="form-control" id="nome" placeholder="Insira o Nome" name="nome" value="<?php echo @$nome ?>" required>
-					</div>
-
-
-
-				
-
+				</div>
 				<div id="mensagem" class="">
 					
 				</div>

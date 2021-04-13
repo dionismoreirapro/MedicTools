@@ -1,57 +1,57 @@
 <?php 	
 
-//verficações para o Login
-require_once("../conexao.php");
-require_once("../config.php");
-require_once("consultas-notificacoes.php");
+	//verficações para o Login
+	require_once("../conexao.php");
+	require_once("../config.php");
+	require_once("consultas-notificacoes.php");
 
-@session_start();
-if(!isset($_SESSION['nome_usuario']) || $_SESSION['nivel_usuario'] != 'admin'){
-	header("location:../index.php");
-}
+	@session_start();
+	if(!isset($_SESSION['nome_usuario']) || $_SESSION['nivel_usuario'] != 'admin'){
+		header("location:../index.php");
+	}
 
 
-$notificacoes = 3;
+	$notificacoes = 3;
 
-//VARIÁVEIS DOS MENUS
-$item1 = 'home';
-$item2 = 'medicos';
-$item3 = 'funcionarios';
-$item4 = 'usuarios';
-$item5 = 'espec';
-$item6 = 'recepcionistas';
-$item7 = 'atendimentos';
-$item8 = 'tesoureiros';
-$item9 = 'cargos';
-$item10 = 'backup';
-$item11 = 'notificacoes';
+	//VARIÁVEIS DOS MENUS
+	$item1 = 'home';
+	$item2 = 'medicos';
+	$item3 = 'funcionarios';
+	$item4 = 'usuarios';
+	$item5 = 'espec';
+	$item6 = 'recepcionistas';
+	$item7 = 'atendimentos';
+	$item8 = 'tesoureiros';
+	$item9 = 'cargos';
+	$item10 = 'backup';
+	$item11 = 'notificacoes';
 
-//VERIFICAR QUAL O MENU CLICADO E PASSAR A CLASSE ATIVO
-if(@$_GET['acao'] == $item1){
-	$item1ativo = 'active';
-}elseif(@$_GET['acao'] == $item2 or isset($_GET[$item2])){
-	$item2ativo = 'active';
-}elseif(@$_GET['acao'] == $item3){
-	$item3ativo = 'active';
-}elseif(@$_GET['acao'] == $item4 or isset($_GET[$item4])){
-	$item4ativo = 'active';
-}elseif(@$_GET['acao'] == $item5){
-	$item5ativo = 'active';
-}elseif(@$_GET['acao'] == $item6){
-	$item6ativo = 'active';
-}elseif(@$_GET['acao'] == $item7){
-	$item7ativo = 'active';
-}elseif(@$_GET['acao'] == $item8){
-	$item8ativo = 'active';
-}elseif(@$_GET['acao'] == $item9){
-	$item9ativo = 'active';
-}elseif(@$_GET['acao'] == $item10){
-	$item10ativo = 'active';
-}elseif(@$_GET['acao'] == $item11){
-	$item11ativo = 'active';
-}else{
-	$item1ativo = 'active';
-}
+	//VERIFICAR QUAL O MENU CLICADO E PASSAR A CLASSE ATIVO
+	if(@$_GET['acao'] == $item1){
+		$item1ativo = 'active';
+	}elseif(@$_GET['acao'] == $item2 or isset($_GET[$item2])){
+		$item2ativo = 'active';
+	}elseif(@$_GET['acao'] == $item3){
+		$item3ativo = 'active';
+	}elseif(@$_GET['acao'] == $item4 or isset($_GET[$item4])){
+		$item4ativo = 'active';
+	}elseif(@$_GET['acao'] == $item5){
+		$item5ativo = 'active';
+	}elseif(@$_GET['acao'] == $item6){
+		$item6ativo = 'active';
+	}elseif(@$_GET['acao'] == $item7){
+		$item7ativo = 'active';
+	}elseif(@$_GET['acao'] == $item8){
+		$item8ativo = 'active';
+	}elseif(@$_GET['acao'] == $item9){
+		$item9ativo = 'active';
+	}elseif(@$_GET['acao'] == $item10){
+		$item10ativo = 'active';
+	}elseif(@$_GET['acao'] == $item11){
+		$item11ativo = 'active';
+	}else{
+		$item1ativo = 'active';
+	}
 
 
 ?>
@@ -203,41 +203,41 @@ if(@$_GET['acao'] == $item1){
 
 <!--CÓDIGO DO BOTÃO SALVAR -->
 <?php 
-if(isset($_POST['btn-senha'])){
-	$senha = $_POST['senha'];
-	$confirmar_senha = $_POST['confirmar-senha'];
+	if(isset($_POST['btn-senha'])){
+		$senha = $_POST['senha'];
+		$confirmar_senha = $_POST['confirmar-senha'];
 
 
 
-	$email_usuario = $_SESSION['email_usuario'];
+		$email_usuario = $_SESSION['email_usuario'];
 
 
-	$res_usuario = $pdo->query("SELECT * from usuarios where usuario = '$email_usuario'");
-	$dados_usuario = $res_usuario->fetchAll(PDO::FETCH_ASSOC);
-    $id_adm = $dados_usuario[0]['id'];	
-								
-   
+		$res_usuario = $pdo->query("SELECT * from usuarios where usuario = '$email_usuario'");
+		$dados_usuario = $res_usuario->fetchAll(PDO::FETCH_ASSOC);
+	    $id_adm = $dados_usuario[0]['id'];	
+									
+	   
 
-    if($senha == $confirmar_senha){
-	
+	    if($senha == $confirmar_senha){
+		
 
-		$res = $pdo->prepare("UPDATE usuarios SET senha = :senha, senha_original = :senha_original where id = :id");
+			$res = $pdo->prepare("UPDATE usuarios SET senha = :senha, senha_original = :senha_original where id = :id");
 
-		$res->bindValue(":senha", md5($senha));
-		$res->bindValue(":senha_original", $senha);
-		$res->bindValue(":id", $id_adm);
+			$res->bindValue(":senha", md5($senha));
+			$res->bindValue(":senha_original", $senha);
+			$res->bindValue(":id", $id_adm);
 
-		$res->execute();
+			$res->execute();
+
+			
+			echo "<script language='javascript'>window.location='../index.php'; </script>";
+
+		}else{
+			echo "<script language='javascript'>window.alert('As senhas não coincidem!!'); </script>";
+		}
 
 		
-		echo "<script language='javascript'>window.location='../index.php'; </script>";
 
-	}else{
-		echo "<script language='javascript'>window.alert('As senhas não coincidem!!'); </script>";
 	}
-
-	
-
-}
 
 ?>

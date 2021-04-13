@@ -4,39 +4,39 @@
 		<?php 
 		
 
-		if($valor_1 > 0){
+			if($valor_1 > 0){
 
 
-			?>
+				?>
 
 
 
-			<div class="col-sm-12 col-lg-4 col-md-6 col-sm-6 mb-4">
-				<div class="card card-stats">
-					<div class="card-body ">
-						<div class="row">
-							<div class="col-5 col-md-4">
-								<div class="icone-card text-center text-warning">
-									<i class="fas fa-file-medical"></i>
+				<div class="col-sm-12 col-lg-4 col-md-6 col-sm-6 mb-4">
+					<div class="card card-stats">
+						<div class="card-body ">
+							<div class="row">
+								<div class="col-5 col-md-4">
+									<div class="icone-card text-center text-warning">
+										<i class="fas fa-file-medical"></i>
+									</div>
 								</div>
-							</div>
-							<div class="col-7 col-md-8">
-								<div class="numbers">
-									<p class="titulo-card">Remédios em Risco</p>
-									<p class="subtitulo-card"><?php echo $valor_1 ?><p>
+								<div class="col-7 col-md-8">
+									<div class="numbers">
+										<p class="titulo-card">Remédios em Risco</p>
+										<p class="subtitulo-card"><?php echo $valor_1 ?><p>
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-						<div class="card-footer rodape-card">
-							Remédios com Estoque Baixo!
+							<div class="card-footer rodape-card">
+								Remédios com Estoque Baixo!
 
+							</div>
 						</div>
 					</div>
-				</div>
 
-				<?php
-			}
+					<?php
+				}
 			?>
 			
 
@@ -48,39 +48,39 @@
 		<?php 
 		
 
-		if($valor_2 > 0){
+			if($valor_2 > 0){
 
 
-			?>
+				?>
 
-			
+				
 
-			<div class="col-sm-12 col-lg-4 col-md-6 col-sm-6 mb-4">
-				<div class="card card-stats">
-					<div class="card-body ">
-						<div class="row">
-							<div class="col-5 col-md-4">
-								<div class="icone-card text-center text-success">
-									<i class="fas fa-coins"></i>
+				<div class="col-sm-12 col-lg-4 col-md-6 col-sm-6 mb-4">
+					<div class="card card-stats">
+						<div class="card-body ">
+							<div class="row">
+								<div class="col-5 col-md-4">
+									<div class="icone-card text-center text-success">
+										<i class="fas fa-coins"></i>
+									</div>
 								</div>
-							</div>
-							<div class="col-7 col-md-8">
-								<div class="numbers">
-									<p class="titulo-card">Contas a Receber</p>
-									<p class="subtitulo-card"><?php echo $valor_2 ?><p>
+								<div class="col-7 col-md-8">
+									<div class="numbers">
+										<p class="titulo-card">Contas a Receber</p>
+										<p class="subtitulo-card"><?php echo $valor_2 ?><p>
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-						<div class="card-footer rodape-card">
-							Contas Vencendo Hoje!!
+							<div class="card-footer rodape-card">
+								Contas Vencendo Hoje!!
 
+							</div>
 						</div>
 					</div>
-				</div>
 
-				<?php
-			}
+					<?php
+				}
 			?>
 
 

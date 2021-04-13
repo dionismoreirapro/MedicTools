@@ -17,11 +17,11 @@
 
 					<?php 
 
-					if(isset($_POST['itens-pagina'])){
-						$item_paginado = $_POST['itens-pagina'];
-					}elseif(isset($_GET['itens'])){
-						$item_paginado = $_GET['itens'];
-					}
+						if(isset($_POST['itens-pagina'])){
+							$item_paginado = $_POST['itens-pagina'];
+						}elseif(isset($_GET['itens'])){
+							$item_paginado = $_GET['itens'];
+						}
 
 					?>
 
@@ -38,10 +38,6 @@
 					<?php if(@$item_paginado != $opcao3){ ?> 
 						<option value="<?php echo $opcao3 ?>"><?php echo $opcao3 ?> Registros</option>
 					<?php } ?>
-
-					
-					
-
 				</select>
 			</form>
 		</div>
@@ -51,17 +47,17 @@
 
 	<?php 
 
-	//DEFINIR O NUMERO DE ITENS POR PÁGINA
-	if(isset($_POST['itens-pagina'])){
-		$itens_por_pagina = $_POST['itens-pagina'];
-		@$_GET['pagina'] = 0;
-	}elseif(isset($_GET['itens'])){
-		$itens_por_pagina = $_GET['itens'];
-	}
-	else{
-		$itens_por_pagina = $opcao1;
+		//DEFINIR O NUMERO DE ITENS POR PÁGINA
+		if(isset($_POST['itens-pagina'])){
+			$itens_por_pagina = $_POST['itens-pagina'];
+			@$_GET['pagina'] = 0;
+		}elseif(isset($_GET['itens'])){
+			$itens_por_pagina = $_GET['itens'];
+		}
+		else{
+			$itens_por_pagina = $opcao1;
 
-	}
+		}
 
 	?>
 	
@@ -78,25 +74,14 @@
 				<input class="form-control form-control-sm mr-sm-2" type="search" placeholder="Descrição" aria-label="Search" name="txtbuscar" id="txtbuscar">
 				<button class="btn btn-outline-secondary btn-sm my-2 my-sm-0" name="btn-buscar" id="btn-buscar"><i class="fas fa-search"></i></button>
 			</form>
-		</div>
-		
-	</div>
-
-	
+		</div>		
+	</div>	
 </div>
 
 
 <div id="listar">
 	
 </div>
-
-
-
-
-
-
-
-
 
 <!-- Modal -->
 <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -105,23 +90,23 @@
 			<div class="modal-header">
 				<h5 class="modal-title" id="exampleModalLabel"><?php if(@$_GET['funcao'] == 'editar'){
 
-					$nome_botao = 'Editar';
-					$id_reg = $_GET['id'];
+						$nome_botao = 'Editar';
+						$id_reg = $_GET['id'];
 
-					//BUSCAR DADOS DO REGISTRO A SER EDITADO
-					$res = $pdo->query("select * from atendimentos where id = '$id_reg'");
-					$dados = $res->fetchAll(PDO::FETCH_ASSOC);
-					$descricao = $dados[0]['descricao'];
-					$valor = $dados[0]['valor'];
+						//BUSCAR DADOS DO REGISTRO A SER EDITADO
+						$res = $pdo->query("select * from atendimentos where id = '$id_reg'");
+						$dados = $res->fetchAll(PDO::FETCH_ASSOC);
+						$descricao = $dados[0]['descricao'];
+						$valor = $dados[0]['valor'];
 
 
 
-					echo 'Edição de Atendimentos';
-				}else{
-					$nome_botao = 'Salvar';
-					echo 'Cadastro de Atendimentos';
-				} ?>
-			</h5>
+						echo 'Edição de Atendimentos';
+					}else{
+						$nome_botao = 'Salvar';
+						echo 'Cadastro de Atendimentos';
+					} ?>
+			   </h5>
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				<span aria-hidden="true">&times;</span>
 			</button>
@@ -147,10 +132,6 @@
 					<label for="exampleFormControlInput1">Valor</label>
 					<input type="text" class="form-control" id="valor" placeholder="Insira o Valor" name="valor" value="<?php echo @$valor ?>" required>
 					</div>
-
-
-
-				
 
 				<div id="mensagem" class="">
 					

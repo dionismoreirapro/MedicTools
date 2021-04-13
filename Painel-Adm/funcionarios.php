@@ -17,13 +17,13 @@
 
 					<?php 
 
-					if(isset($_POST['itens-pagina'])){
-						$item_paginado = $_POST['itens-pagina'];
-					}elseif(isset($_GET['itens'])){
-						$item_paginado = $_GET['itens'];
-					}
+						if(isset($_POST['itens-pagina'])){
+							$item_paginado = $_POST['itens-pagina'];
+						}elseif(isset($_GET['itens'])){
+							$item_paginado = $_GET['itens'];
+						}
 
-					?>
+						?>
 
 					<option value="<?php echo @$item_paginado ?>"><?php echo @$item_paginado ?> Registros</option>
 
@@ -39,9 +39,6 @@
 						<option value="<?php echo $opcao3 ?>"><?php echo $opcao3 ?> Registros</option>
 					<?php } ?>
 
-					
-					
-
 				</select>
 			</form>
 		</div>
@@ -51,17 +48,17 @@
 
 	<?php 
 
-	//DEFINIR O NUMERO DE ITENS POR PÁGINA
-	if(isset($_POST['itens-pagina'])){
-		$itens_por_pagina = $_POST['itens-pagina'];
-		@$_GET['pagina'] = 0;
-	}elseif(isset($_GET['itens'])){
-		$itens_por_pagina = $_GET['itens'];
-	}
-	else{
-		$itens_por_pagina = $opcao1;
+		//DEFINIR O NUMERO DE ITENS POR PÁGINA
+		if(isset($_POST['itens-pagina'])){
+			$itens_por_pagina = $_POST['itens-pagina'];
+			@$_GET['pagina'] = 0;
+		}elseif(isset($_GET['itens'])){
+			$itens_por_pagina = $_GET['itens'];
+		}
+		else{
+			$itens_por_pagina = $opcao1;
 
-	}
+		}
 
 	?>
 	
@@ -89,13 +86,6 @@
 <div id="listar">
 	
 </div>
-
-
-
-
-
-
-
 
 
 <!-- Modal -->
