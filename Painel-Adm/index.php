@@ -3,7 +3,7 @@
 	//verficações para o Login
 	require_once("../conexao.php");
 	require_once("../config.php");
-	require_once("consultas-notificacoes.php");
+	//require_once("consultas-notificacoes.php");
 
 	@session_start();
 	if(!isset($_SESSION['nome_usuario']) || $_SESSION['nivel_usuario'] != 'admin'){
@@ -12,7 +12,6 @@
 
 
     $notificacoes = 3;
-
 
 	//VARIÁVEIS DOS MENUS
 	$item1 = 'home';
