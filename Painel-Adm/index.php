@@ -13,6 +13,7 @@
 
 	$notificacoes = 3;
 
+
 	//VARIÁVEIS DOS MENUS
 	$item1 = 'home';
 	$item2 = 'medicos';
@@ -153,9 +154,6 @@
 						}
 						?>
 					</div>
-
-					
-
 				</div>
 			</div>
 		</div>
