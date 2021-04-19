@@ -11,7 +11,7 @@
 	}
 
 
-	$notificacoes = 3;
+    $notificacoes = 3;
 
 
 	//VARIÁVEIS DOS MENUS
