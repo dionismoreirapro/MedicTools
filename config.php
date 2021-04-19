@@ -2,10 +2,18 @@
 
 //DADOS PARA CONEXÃO COM BANCO DE DADOS LOCAL
 
-$host = 'localhost';
-$usuario = 'root';
-$senha = '';
-$banco = 'sysmedical';
+
+//producao
+$host = 'remotemysql.com';
+$usuario = 'Bq5V3xiS1g';
+$senha = 'TKrz6JsDVz';
+$banco = 'Bq5V3xiS1g';
+
+//local
+//$host = 'localhost';
+//$usuario = 'root';
+//$senha = '';
+//$banco = 'sysmedical';
 
 
 //VALORES PARA A COMBOBOX DE PAGINAÇÃO

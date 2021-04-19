@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3e7ce1d9-0ed2-48ab-b041-dee3e71610bf" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/medictools/PageLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/medictools/PageLogin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/br/com/medictools/PageLogin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/br/com/medictools/PageLogin.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
