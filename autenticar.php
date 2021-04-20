@@ -25,7 +25,7 @@ if($linhas > 0){
 	$_SESSION['nivel_usuario'] = $dados[0]['nivel'];
 
 	if($_SESSION['nivel_usuario'] == 'Administrador'){
-		header("location:painel-adm/index.php");
+		header("location:painel-medico/index.php");
 		exit();
 	}
 
