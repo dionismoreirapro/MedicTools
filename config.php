@@ -23,9 +23,9 @@ $opcao3 = 10;
 
 
 //VARIAVEL PARA DEFINIR O CAMINHO DO SISTEMA
-$url_sistema = 'http://localhost/sysmedical';
+$url_sistema = 'https://medictools.herokuapp.com/index.php';
 
-$email_adm = 'contatoadm@hotmail.com';
+$email_adm = 'contatomedictools@hotmail.com';
 
 $cidade = 'Maringa';
 
