@@ -10,7 +10,6 @@
 		header("location:../index.php");
 	}
 
-
     $notificacoes = 3;
 
 	//VARIÁVEIS DOS MENUS
