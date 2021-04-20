@@ -26,6 +26,7 @@ if($linhas > 0){
 
 	if($_SESSION['nivel_usuario'] == 'Administrador'){
 		header("location:painel-adm/index.php");
+		echo 'passou aqui';
 		exit();
 	}
 
